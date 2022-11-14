@@ -11,4 +11,8 @@ io.listen(server);
 
 io.on('connect', function(socket){
     console.log('nueva conexion id: ' + socket.id);
+    socket.on('datos_usuario', function(datos){
+        console.log('correo: ' + datos.correo);
+        io.emit('nuevo_correo', { correo: datos.correo});
+    });
 })

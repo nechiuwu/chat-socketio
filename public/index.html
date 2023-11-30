@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SocketIO</title>
 </head>
+
 <body>
+    <h3>Ingresar</h3>
+    <form id="login_form">
+        <input type="text" id="correo" placeholder="Correo electronico">
+        <input type="text" id="usuario" placeholder="Usuario">
+        <input type="button" name="entrar" value="Entrar" onclick="login()">
+    </form>
     <script src="jquery-3.6.1.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="funciones-socket.js"></script>
     <script>
         const socket = io.connect();
-        socket.emit('datos_usuario', {correo: 'correo@gmail.com'});
-        socket.on('nuevo_correo', function(datos){
+        socket.emit('datos_usuario', { correo: 'correo@gmail.com' });
+        socket.on('nuevo_correo', function (datos) {
             alert("nuevo correo conectado: " + datos.correo)
         })
     </script>
     <h1>Hola mundo</h1>
 </body>
+
 </html>

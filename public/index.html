@@ -15,17 +15,17 @@
         <input type="text" id="usuario" placeholder="Usuario">
         <input type="button" name="entrar" value="Entrar" onclick="login()">
     </form>
+    <br>
+    <hr>
+    <div id="cont_mensajes">
+    </div>
+    <div id="cont_mensajes">
+        <textarea id="mensaje" placeholder="Mensaje"></textarea>
+        <button id="enviar_mensaje" onclick="enviar_msj()">Enviar</button>
+    </div>
     <script src="jquery-3.6.1.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="funciones-socket.js"></script>
-    <script>
-        const socket = io.connect();
-        socket.emit('datos_usuario', { correo: 'correo@gmail.com' });
-        socket.on('nuevo_correo', function (datos) {
-            alert("nuevo correo conectado: " + datos.correo)
-        })
-    </script>
-    <h1>Hola mundo</h1>
 </body>
 
 </html>
